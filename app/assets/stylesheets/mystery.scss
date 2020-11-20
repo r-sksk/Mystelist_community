@@ -5,11 +5,48 @@
 #mystery-index {
   .content-wrapper {
     display: flex;
+    justify-content: space-between;
 
     .content-block {
-      background-color: #800100;
-      width: 80%;
-      height: 200px;
+      border: 2px solid #000;
+      padding: 20px;
+      width: 70%;
+
+      .content {
+        border: 2px solid #000;
+        padding: 20px;
+        margin-bottom: 10px;
+
+        .user-about {
+          display: flex;
+
+          .image {
+            width: 10%;
+          }
+
+          .profile {
+            margin-left: 10px;
+
+            .name-word {
+              width: 100%;
+              display: flex;
+              margin-bottom: 10px;
+
+              .name {
+                font-weight: bold;
+              }
+
+              .word {
+                margin-left: 20px;
+              }
+            }
+            .self-introduction {
+              width: 100%;
+              font-size: 14px;
+            }
+          }
+        }
+      }
     }
 
     .sidebar {
