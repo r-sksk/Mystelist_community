@@ -25,6 +25,14 @@
           <p><%= post.content %></p>
         </div>
 
+        <% if post.images.attached? %>
+          <div class="images">
+            <% post.images.each do |images| %>
+              <%= image_tag images %>
+            <% end %>
+          </div>
+        <% end %>
+
         <div class="action-menu">
           <div class="like">
           </div>
