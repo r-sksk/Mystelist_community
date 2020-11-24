@@ -1,43 +1,42 @@
 <div class="content-wrapper">
   <div class="content-block">
-    <% (1..10).each do |i| %>
-    <div class="content">
-      <div class="user-about">
-        <div class="image">
-          <%= image_tag "user.jpg" %>
-        </div>
-        <div class="profile">
-          <div class="name-word">
-            <div class="name">
-              りょうすけ
+    <% @posts.each do |post| %>
+      <div class="content">
+        <div class="user-about">
+          <div class="image">
+            <%= image_tag "user.jpg" %>
+          </div>
+          <div class="profile">
+            <div class="name-word">
+              <div class="name">
+                りょうすけ
+              </div>
+              <div class="word">
+                今日の一言：おはよう
+              </div>
             </div>
-            <div class="word">
-              今日の一言：おはよう
+            <div class="self-introduction">
+              自己紹介：新潟在住で転職活動中です
             </div>
           </div>
-          <div class="self-introduction">
-            自己紹介：新潟在住で転職活動中です
+        </div>
+
+        <div class="text">
+          <p><%= post.content %></p>
+        </div>
+
+        <div class="action-menu">
+          <div class="like">
+          </div>
+          <div class="comment">
           </div>
         </div>
       </div>
-
-      <div class="text">
-        <p>これはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストです</p>
-        <p>これはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストですこれはサンプルテキストです</p>
-      </div>
-
-       <div class="action-menu">
-         <div class="like">
-         </div>
-         <div class="comment">
-         </div>
-       </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-  <div class="sidebar">
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
+    <div class="sidebar">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
 </div>
 
