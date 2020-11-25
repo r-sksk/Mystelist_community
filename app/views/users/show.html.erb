@@ -1,0 +1,5 @@
+<h>プロフィール画像</h>
+<p>ユーザー名:<%= @user.name %></p>
+<p>一言（つぶやき）：<%= @user.word %></P>
+<p>自己紹介：<%= @user.self_introduction %><p>
+<%= link_to "編集する", edit_user_path(@user) %>
