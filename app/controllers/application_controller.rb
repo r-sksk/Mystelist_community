@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller? #deviseの認証設定
+  before_action :configure_permitted_parameters, if: :devise_controller? #deviseの設定
 
   private
-    def configure_permitted_parameters #deviseの認証設定
+    def configure_permitted_parameters #deviseの設定
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
 end
