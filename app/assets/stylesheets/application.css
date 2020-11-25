@@ -58,3 +58,21 @@ img {
   font-size: 15px;
   margin-top: 20px;
 }
+
+.toast {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.toast .notice {
+  background-color: #49ac49;
+  color: #fff;
+  padding: 10px;
+}
+
+.toast .alert {
+  background-color: darkred;
+  color: #fff;
+  padding: 10px;
+}
+
