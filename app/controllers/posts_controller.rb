@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user! #アクセス制限
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :force_redirect_unless_my_post, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -17,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to root_path, notice: "投稿に成功しました"
     else
@@ -50,4 +53,8 @@ class PostsController < ApplicationController
    def find_post
      @post = Post.find(params[:id])
    end
+
+   def force_redirect_unless_my_post #自分の投稿以外は強制的にトップページにリダイレクトさせる
+    return redirect_to root_path, alert:"自分の投稿ではありません" if @post.user != current_user
+  end
 end

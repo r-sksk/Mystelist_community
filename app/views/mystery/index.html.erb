@@ -4,19 +4,23 @@
       <div class="content">
         <div class="user-about">
           <div class="image">
-            <%= image_tag "user.jpg" %>
+            <% if post.user.image.attached? %>
+              <%= image_tag post.user.image %>
+            <% else %>
+              <%= image_tag "nouser.png" %>
+            <% end %>
           </div>
           <div class="profile">
             <div class="name-word">
               <div class="name">
-                りょうすけ
+                <%= post.user.name %>
               </div>
               <div class="word">
-                今日の一言：おはよう
+                <%= "つぶやき：#{post.user.word}" %>
               </div>
             </div>
             <div class="self-introduction">
-              自己紹介：新潟在住で転職活動中です
+              <%= "自己紹介：#{post.user.self_introduction}" %>
             </div>
           </div>
         </div>

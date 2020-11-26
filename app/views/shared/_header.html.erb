@@ -1,7 +1,10 @@
 <div id="header">
-  <div class="logo">
-    <%= link_to "ロゴ", root_path %>
-  </div>
+  <%= link_to root_path, class: "logo" do %>
+    <h1>
+      Mystelist<br>
+      community
+    </h1>
+  <% end %>
   <div class="link">
     <ul id="nav">
       <% if user_signed_in? %>
