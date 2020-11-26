@@ -6,7 +6,6 @@
   form {
     .form-group {
       margin: 10px 0;
-
       label {
         display: block;
       }
@@ -20,6 +19,9 @@
         -webkit-appearance: none;
         -moz-appearance: none;
       }
+    }
+    .image-preview {
+      max-width: 200px;
     }
     .submit-block {
       display: flex;
