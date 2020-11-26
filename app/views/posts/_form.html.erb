@@ -1,7 +1,18 @@
 <%= form_with model: @post, local:true do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :content, rows: 5  %>
-  <%= f.file_field :images, multiple: true %><br>
+  <div class="form-group">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "本文" %>
+    <%= f.text_area :content, rows: 5  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :images, "画像を添付" %>
+    <%= f.file_field :images, multiple: true %><br>
+  </div>
+
   <div class="submit-block">
     <%= f.submit class: "button" %>
   </div>
