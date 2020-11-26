@@ -32,7 +32,7 @@ img {
 #header .logo {
   text-decoration: none;
   text-align: center;
-  color: red;
+  color:#fff;
   font-family: cursive;
   font-size: 8px;
   background-color: #333;
@@ -56,14 +56,14 @@ img {
 
 #header #nav li a {
   text-decoration: none;
-  color:red;
+  color:#fff;
   font-weight: bold;
   padding: 20px;
 }
 
 #footer {
   background-color: #333;
-  color:red;
+  color:#fff;
   text-align: center;
   padding: 10px 0px;
   font-size: 15px;
