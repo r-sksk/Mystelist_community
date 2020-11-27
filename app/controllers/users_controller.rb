@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user = current_user
     if @user.save
       redirect_to root_path, notice: "プロフィール情報の登録が完了しました"
     else
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user = User.update(user_params)
+    if @user.update(user_params)
       redirect_to  root_path, notice: "プロフィール情報の更新が完了しました"
     else
       render :edit

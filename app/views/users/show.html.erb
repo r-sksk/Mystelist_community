@@ -1,19 +1,4 @@
-<%= form_with model: @user, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "ユーザー名" %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :word, "一言（つぶやき）" %>
-    <%= f.text_field :word %>
-  </div>
-  <div class="form-group">
-    <%= f.label :self_introduction, "自己紹介" %>
-    <%= f.text_field :self_introduction %>
-  </div>
-  <div class="form-group">
-    <%= f.label :image, "プロフィール画像" %>
-    <%= f.file_field :image %><br>
-  </div>
-<% end %>
+<%= @user.name %>
+<%= @user.word %>
+<%= @user.self_introduction %>
 <%= link_to "編集する", edit_user_path(@user) %>

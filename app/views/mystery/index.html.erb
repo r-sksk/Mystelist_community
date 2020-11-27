@@ -13,7 +13,9 @@
           <div class="profile">
             <div class="name-word">
               <div class="name">
-                <%= post.user.name %>
+                <%= link_to user_path(post.user.id) do %>
+                  <%= post.user.name %>
+                <% end %>
               </div>
               <div class="word">
                 <%= "つぶやき：#{post.user.word}" %>
@@ -26,8 +28,8 @@
         </div>
 
         <div class="title">
-          <%= "タイトル：#{post.title}" %>
-        <div>
+          <%=link_to post.title, post_path(post) %>
+        </div>
         <div class="text">
           <p><%= post.content %></p>
         </div>
