@@ -6,7 +6,7 @@
         <div class="image-name">
           <div class="comment-image">
             <% if comment.user.image.attached? %>
-              <%= image_tag post.user.image %>
+              <%= image_tag comment.user.image %>
             <% else %>
               <%= image_tag "nouser.png" %>
             <% end %>

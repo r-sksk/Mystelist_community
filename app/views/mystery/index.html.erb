@@ -1,14 +1,57 @@
 <div class="content-wrapper">
   <div class="content-block">
     <% @posts.each do |post| %>
-      <div class="post_<%= post.id %>">
-        <%= render 'ajax', post: post %>
-      </div>
-    <% end %>
+      <div class="content">
+        <div class="user-about">
+          <div class="image">
+            <% if post.user.image.attached? %>
+              <%= image_tag post.user.image %>
+            <% else %>
+              <%= image_tag "nouser.png" %>
+            <% end %>
+          </div>
+          <div class="profile">
+            <div class="name-word">
+              <div class="name">
+                <%= link_to user_path(post.user.id) do %>
+                  <%= post.user.name %>
+                <% end %>
+              </div>
+              <div class="word">
+                <%= "つぶやき：#{post.user.word}" %>
+              </div>
+            </div>
+            <div class="self-introduction">
+              <%= "自己紹介：#{post.user.self_introduction}" %>
+            </div>
+          </div>
+        </div>
+        <div class="title-text">
+          <div class="title">
+            <%=link_to post.title, post_path(post) %>
+          </div>
+          <div class="text">
+            <%= post.content.truncate(140) %>
+          </div>
+        </div>
+
+        <% if post.images.attached? %>
+          <div class="images">
+            <% post.images.each do |images| %>
+              <%= image_tag images %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="post_<%= post.id %>">
+          <%= render 'ajax', post: post %>
+        </div>
+      <% end %>
+    </div>
+    <div class="sidebar">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
   </div>
-  <div class="sidebar">
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
-</div>
+
 

@@ -1,65 +1,23 @@
-<div class="content">
-  <div class="user-about">
-    <div class="image">
-      <% if post.user.image.attached? %>
-        <%= image_tag post.user.image %>
+ <% if user_signed_in? %>
+   <div class="action-menu">
+     <div class="like">
+       <% if current_user.already_favorited?(post) %>
+         <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+           <i class ="fas fa-heart"></i>
+         <% end %>
       <% else %>
-        <%= image_tag "nouser.png" %>
+        <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+          <i class ="far fa-heart"></i>
+        <% end %>
       <% end %>
+      <%= post.favorites.count %>
     </div>
-    <div class="profile">
-      <div class="name-word">
-        <div class="name">
-          <%= link_to user_path(post.user.id) do %>
-            <%= post.user.name %>
-          <% end %>
-        </div>
-        <div class="word">
-          <%= "つぶやき：#{post.user.word}" %>
-        </div>
-      </div>
-      <div class="self-introduction">
-        <%= "自己紹介：#{post.user.self_introduction}" %>
-      </div>
+    <div class="comment">
+      <%= link_to post_path(post) do %>
+        <i class="far fa-comment"></i>
+      <% end %>
+      <%= post.comments.count %>
     </div>
   </div>
-  <div class="title-text">
-    <div class="title">
-      <%=link_to post.title, post_path(post) %>
-    </div>
-    <div class="text">
-      <%= post.content %>
-    </div>
-  </div>
-
-  <% if post.images.attached? %>
-    <div class="images">
-      <% post.images.each do |images| %>
-        <%= image_tag images %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <div class="action-menu">
-      <div class="like">
-        <% if current_user.already_favorited?(post) %>
-          <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-            <i class ="fas fa-heart"></i>
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-            <i class ="far fa-heart"></i>
-          <% end %>
-        <% end %>
-        <%= post.favorites.count %>
-      </div>
-      <div class="comment">
-        <%= link_to post_path(post) do %>
-          <i class="far fa-comment"></i>
-        <% end %>
-        <%= post.comments.count %>
-      </div>
-    </div>
-  <% end %>
+<% end %>
 </div>
