@@ -23,12 +23,13 @@
       </div>
     </div>
   </div>
-
-  <div class="title">
-    <%=link_to post.title, post_path(post) %>
-  </div>
-  <div class="text">
-    <p><%= post.content %></p>
+  <div class="title-text">
+    <div class="title">
+      <%=link_to post.title, post_path(post) %>
+    </div>
+    <div class="text">
+      <%= post.content %>
+    </div>
   </div>
 
   <% if post.images.attached? %>
@@ -54,6 +55,10 @@
         <%= post.favorites.count %>
       </div>
       <div class="comment">
+        <%= link_to post_path(post) do %>
+          <i class="far fa-comment"></i>
+        <% end %>
+        <%= post.comments.count %>
       </div>
     </div>
   <% end %>

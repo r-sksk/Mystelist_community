@@ -48,6 +48,26 @@
             }
           }
         }
+        .title-text {
+          .title {
+            text-decoration: none;
+            font-weight: bold;
+          }
+          .text {
+            padding: 0px;
+          }
+        }
+        .action-menu {
+          display: flex;
+          float: right;
+          .like {
+          }
+          .comment {
+            padding-left: 10px;
+            padding-bottom: 10px;
+            text-decoration: none;
+          }
+        }
       }
     }
 

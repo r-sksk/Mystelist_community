@@ -1,3 +1,34 @@
-<%= @post.user.name %>
-<%= @post.title %>
-<%= @post.content %>
+<div class="content-area">
+  <div class="sub">
+    <div class="post-user">
+      投稿者<%= @post.user.name %>さん
+    </div>
+    <div class="post-time">
+      投稿日<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </div>
+    <% if @post.user_id == current_user.id %>
+      <%= link_to edit_post_path(@post) do %>
+        <i class="far fa-edit"></i>
+          編集する
+      <% end %>
+    <% end %>
+  </div>
+  <div class="main">
+    <div class="post-title">
+      <%= @post.title %>
+    </div>
+    <div class="post-content">
+      <%= @post.content %>
+    </div>
+  </div>
+</div>
+
+<div id="comments_area">
+  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>
+<% if user_signed_in? %>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+<% end %>
+</div>
