@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#posts-new, #post-create, #posts-edit, #posts-update {
+#posts-new, #post-create, #posts-edit, #posts-update, #posts-show {
   form {
     .form-group {
       margin: 10px 0;
@@ -52,6 +52,66 @@
         color         : #333;     /* 背景色     */
         background    : #ffffff;     /* 文字色     */
       }
+    }
+  }
+  .content-area {
+    border: 2px solid #000;
+    padding: 10px;
+    .sub {
+      display: flex;
+      .post-user {
+      }
+      .post-time {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    .main {
+      background-color: #ccc;
+      padding-top: 10px;
+      padding: 5px;
+      .post-title {
+        font-size: 20px;
+        font-weight: bolder;
+      }
+      .post-content {
+      }
+    }
+  }
+  .comment-block {
+    width: 70%;
+    border: 2px solid #000;
+    margin :10px 0;
+    .comment-infomation {
+      .image-name {
+        display: flex;
+        .comment-image {
+          padding-top: 8px;
+          width: 3%;
+        }
+        .comment-name {
+          padding-top: 10px;
+        }
+      }
+      .comment-content {
+        margin: 5px 5px;
+      }
+      .time-trash {
+        display: flex;
+        margin: 5px 5px;
+        .comment-time {
+          padding-top: 5px;
+        }
+        .comment-trash {
+          margin: 5px 5px;
+        }
+      }
+    }
+  }
+  .comment-form {
+    textarea {
+      width: 70%;
+      height: 150px;
     }
   }
 }
