@@ -47,7 +47,11 @@
           <%= render 'ajax', post: post %>
         </div>
       <% end %>
+      <div class="pagination">
+        <%= paginate @posts %>
+      </div>
     </div>
+
     <div class="sidebar">
       <div class="box"></div>
       <div class="box"></div>
