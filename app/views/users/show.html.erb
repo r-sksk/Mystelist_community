@@ -1,25 +1,29 @@
 <h1>マイページ</h1>
 <div class="user-section">
-  <div class="user-image">
-    <% if @user.image.attached? %>
-      <%= image_tag @user.image %>
-    <% else %>
-      <%= image_tag "nouser.png" %>
-    <% end %>
+  <div class="user-content">
+    <div class="user-image">
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image %>
+      <% else %>
+        <%= image_tag "nouser.png" %>
+      <% end %>
+    </div>
+    <div class="user-info">
+      <div class="user-name">
+        ユーザー名：<%= @user.name %>
+      </div>
+      <div class="user-word">
+        つぶやき：<%= @user.word %>
+      </div>
+      <div class="user-self">
+        自己紹介：<%= @user.self_introduction %>
+      </div>
+      <% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="fas fa-user-edit"></i>
+            編集する
+        <% end %>
+      <% end %>
+    </div>
   </div>
-  <div class="user-name">
-    ユーザー名：<%= @user.name %>
-  </div>
-  <div class="user-word">
-    つぶやき：<%= @user.word %>
-  </div>
-  <div class="user-self">
-    自己紹介：<%= @user.self_introduction %>
-  </div>
-  <% if @user.id == current_user.id %>
-    <%= link_to edit_user_path(@user) do %>
-      <i class="fas fa-user-edit"></i>
-        編集する
-    <% end %>
-  <% end %>
 </div>

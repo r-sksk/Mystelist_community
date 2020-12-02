@@ -83,5 +83,15 @@
         margin: 10px auto;
       }
     }
+    .pagination {
+      text-align: center;
+      .page {
+        border: 2px solid #000;
+        padding-left: 5px;
+      }
+      .next {
+        padding-left: 10px;
+      }
+    }
   }
 }
