@@ -57,9 +57,11 @@
   .content-area {
     border: 2px solid #000;
     padding: 10px;
+    padding-bottom: 30px;
     .sub {
       display: flex;
       .post-user {
+        font-weight: bold;
       }
       .post-time {
         padding-left: 10px;
@@ -73,8 +75,21 @@
       .post-title {
         font-size: 20px;
         font-weight: bolder;
+        padding-bottom: 10px;
       }
       .post-content {
+
+      }
+    }
+    .sns-share {
+      display: flex;
+      float: right;
+      margin: 5px;
+      .line {
+        padding-right: 5px;
+      }
+      .twitter {
+        padding-right: 5px;
       }
     }
   }

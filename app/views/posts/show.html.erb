@@ -18,7 +18,25 @@
       <%= @post.title %>
     </div>
     <div class="post-content">
-      <%= @post.content %>
+      <!-- 投稿されたコンテンツの改行・空白を表示 -->
+      <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+    </div>
+  </div>
+  <div class="sns-share">
+    <div class="line">
+      <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="http://localhost:3000/posts/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+      <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+    </div>
+    <div class="twitter">
+      <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
+        <i class="fab fa-twitter-square fa-lg"></i>
+      <% end %>
+    </div>
+    <div class="facebook">
+      <div id="fb-root">
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=485300025780431&autoLogAppEvents=1" nonce="tyrq65aC"></script>
+        <div class="fb-share-button" data-href="http://localhost:3000/pots/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fmenus%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+      </div>
     </div>
   </div>
 </div>
