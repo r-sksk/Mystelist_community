@@ -1,7 +1,9 @@
 <div class="content-area">
   <div class="sub">
     <div class="post-user">
-      投稿者<%= @post.user.name %>さん
+      <%= link_to user_path(@post.user.id) do %>
+        投稿者<%= @post.user.name %>さん
+      <% end %>
     </div>
     <div class="post-time">
       投稿日<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>

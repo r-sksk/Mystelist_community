@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="comment-content">
-          <%= comment.content %>
+          <%= safe_join(comment.content.split("\n"),tag(:br)) %>
         </div>
         <div class="time-trash">
           <div class="comment-time">
