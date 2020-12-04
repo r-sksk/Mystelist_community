@@ -49,19 +49,57 @@
       }
     }
   }
-  .user-section {
-    border: 2px solid #000;
-    width: 70%;
-    padding: 10px;
-    font-size: 20px;
-    .user-content {
-      display: flex;
-      padding: 15px;
-      .user-image {
-        width: 30%;
+  .controll-section {
+    display: flex;
+    justify-content: space-between;
+    .user-section {
+      border: 2px solid #000;
+      width: 70%;
+      padding: 10px;
+      font-size: 20px;
+      .user-content {
+        display: flex;
+        padding: 15px;
+        .user-image {
+          width: 30%;
+        }
+        .user-info {
+          padding-left: 30px;
+        }
       }
-      .user-info {
-        padding-left: 30px;
+    }
+    .user-sidebar {
+      border: 2px solid #000;
+      width: 20%;
+      padding: 20px;
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #000;
+        margin: 10px auto;
+      }
+    }
+  }
+  .post-section {
+    p {
+      font-size: 20px;
+    }
+    .post-index {
+      border: 2px solid #000;
+      margin-bottom: 10px;
+      padding: 5px;
+      .sub {
+        display: flex;
+        .post-title {
+          font-weight: bold;
+          padding : 5px;
+          padding-bottom: 0px;
+        }
+        .time-action {
+          padding: 5px;
+        }
+      }
+      .post-content {
       }
     }
   }
