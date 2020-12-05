@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! #アクセス制限
 
   def show
+  end
+
+  def favorites
+    @user = User.find(params[:user_id]) #find_userだとエラーになるため記述
+    @favorites = Favorite.where(user_id: @user.id)
   end
 
   def new
@@ -31,6 +36,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user.destroy
+    redirect_to root_path, notice: 'アカウントを削除しました。'
   end
 
   private
