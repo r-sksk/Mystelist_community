@@ -1,0 +1,3 @@
+<% @histories.each do |history| %>
+  <%= link_to history.post.title, post_path(history.post) %>
+<% end %>

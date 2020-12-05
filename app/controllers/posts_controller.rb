@@ -8,6 +8,20 @@ class PostsController < ApplicationController
   end
 
   def show
+    new_history = @post.browsinghistories.new
+    new_history.user_id = current_user.id
+    if current_user.browsinghistories.exists?(post_id: "#{params[:id]}")
+      old_history = current_user.browsinghistories.find_by(post_id: "#{params[:id]}")
+      old_history.destroy
+    end
+    new_history.save
+
+    histories_stock_limit = 10
+    histories = current_user.browsinghistories.all
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
+
     @comment = Comment.new
     @comments = @post.comments
   end
