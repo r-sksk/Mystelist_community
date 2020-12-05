@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   def show
   end
 
-  def favorites
+  def favorites #いいね履歴
     @user = User.find(params[:user_id]) #find_userだとエラーになるため記述
     @favorites = Favorite.where(user_id: @user.id)
   end
 
   def histories #閲覧履歴
-    @histories = current_user.browsinghistories.all
+    @histories = current_user.browsinghistories.all.order(created_at: :desc)
   end
 
   def new

@@ -33,8 +33,24 @@
     </div>
   </div>
   <div class="user-sidebar">
-    <%= link_to "いいねした投稿", user_favorites_path(@user) %>
-    <%= link_to "閲覧履歴", user_histories_path(@user) %>
+    <div class="post">
+      <%= link_to new_post_path do %>
+        <i class="far fa-plus-square"></i>
+          投稿する
+      <% end %>
+    </div>
+    <div class="favorites">
+      <%= link_to user_favorites_path(@user) do %>
+        <i class="fas fa-heart"></i>
+          いいねした投稿
+      <% end %>
+    </div>
+    <div class="histories">
+      <%= link_to user_histories_path(@user) do %>
+        <i class="fas fa-history"></i>
+          閲覧履歴
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -63,7 +79,7 @@
                 <i class="far fa-edit"></i>
                   編集する
               <% end %>
-              <%= link_to post_path(post), method: :delete do %>
+              <%= link_to post_path(post), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
                 <i class="fas fa-trash"></i>
                   削除する
               <% end %>
