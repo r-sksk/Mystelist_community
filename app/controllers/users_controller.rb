@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: @user.id)
   end
 
+  def histories #閲覧履歴
+    @histories = current_user.browsinghistories.all
+  end
+
   def new
     @user = User.new
   end
