@@ -1,4 +1,4 @@
-<h4><%= comments.count %>件コメント</h4>
+<h4><%= comments.count %>件のコメント</h4>
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="comment-block">
@@ -28,8 +28,8 @@
                 <i class="fas fa-trash" ></i>
               <% end %>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
