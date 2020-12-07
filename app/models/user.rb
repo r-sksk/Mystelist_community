@@ -15,4 +15,5 @@ class User < ApplicationRecord
   def already_favorited?(post)  #いいねをしたか判定をする
     self.favorites.exists?(post_id: post.id) #self=current.userに結びついているいいねの中でこのpost_idが存在しているか
   end
+
 end

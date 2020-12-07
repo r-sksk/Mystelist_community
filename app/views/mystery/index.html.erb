@@ -53,8 +53,39 @@
     </div>
 
     <div class="sidebar">
-      <div class="box"></div>
-      <div class="box"></div>
+      <h3>投稿ランキング</h3>
+      <div class="favorite-ranking">
+        <div class="ranking-title">
+          <h4>いいねの多い投稿</h4>
+        </div>
+        <% @favorite_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= rank.title %>
+              <i class ="fas fa-heart"></i>
+              <%= rank.favorites.count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+        <% end %>
+      </div>
+      <div class="comment-ranking">
+        <div class="ranking-title">
+          <h4>コメントの多い投稿</h4>
+        </div>
+        <% @comment_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= rank.title %>
+              <i class="far fa-comment"></i></i>
+              <%= rank.comments.count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 
