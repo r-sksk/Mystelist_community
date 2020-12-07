@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :browsinghistories, dependent: :destroy
+  is_impressionable counter_cache: true
 
   def self.create_favorite_ranks #Postからデータを取ってくる
     Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))

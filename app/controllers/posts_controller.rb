@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    impressionist(@post, nil, unique: [:impressionable_id, :ip_address])
     new_history = @post.browsinghistories.new
     new_history.user_id = current_user.id
     if current_user.browsinghistories.exists?(post_id: "#{params[:id]}")
