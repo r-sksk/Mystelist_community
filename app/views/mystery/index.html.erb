@@ -86,6 +86,22 @@
           </ul>
         <% end %>
       </div>
+       <div class="view-ranking">
+        <div class="ranking-title">
+          <h4>閲覧数の多い投稿</h4>
+        </div>
+        <% @view_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= rank.title %>
+              <i class="far fa-eye"></i></i>
+              <%= rank.impressions_count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 
