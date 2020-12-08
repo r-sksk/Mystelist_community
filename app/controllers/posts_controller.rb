@@ -3,10 +3,6 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   before_action :force_redirect_unless_my_post, only: [:edit, :update, :destroy]
 
-  def index
-    @posts = Post.all
-  end
-
   def show
     impressionist(@post, nil, unique: [:impressionable_id, :ip_address])
     new_history = @post.browsinghistories.new
