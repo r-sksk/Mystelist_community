@@ -24,6 +24,17 @@
     <div class="post-content">
       <!-- 投稿されたコンテンツの改行・空白を表示 -->
       <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+
+      <% if @post.images.attached? %>
+          <div class="images">
+            <% @post.images.each do |images| %>
+              <%= link_to images, :rel => "lightbox" do %>
+                <%= image_tag images %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
     </div>
   </div>
   <div class="sns-share">

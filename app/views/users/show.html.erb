@@ -45,10 +45,22 @@
           いいねした投稿
       <% end %>
     </div>
+    <div class="comments">
+      <%= link_to user_comments_path(@user) do %>
+        <i class="fas fa-heart"></i>
+          コメントした投稿
+      <% end %>
+    </div>
     <div class="histories">
       <%= link_to user_histories_path(@user) do %>
         <i class="fas fa-history"></i>
           閲覧履歴
+      <% end %>
+    </div>
+    <div class="logout">
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+        ログアウトする
       <% end %>
     </div>
   </div>

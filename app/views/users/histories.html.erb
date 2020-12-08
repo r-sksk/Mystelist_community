@@ -1,4 +1,4 @@
-<h1><%= "#{current_user.name}さんの閲覧履歴" %></h1>
+<h1><%= "#{current_user.name}さんの閲覧履歴（過去１０件まで）" %></h1>
 <% if @histories.empty? %>
   <p>まだ閲覧履歴がありません<p>
 <% else %>
