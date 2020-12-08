@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     @histories = current_user.browsinghistories.all.order(created_at: :desc)
   end
 
+  def comments #コメント履歴
+    @user = User.find(params[:user_id])
+    @comments = Comment.where(user_id: @user.id).order(created_at: :desc).limit(20)
+  end
+
   def new
     @user = User.new
   end

@@ -1,0 +1,14 @@
+<h1><%= "#{current_user.name}さんのコメントした投稿一覧（過去２０件まで）" %></h1>
+<% if @comments.empty? %>
+  <p>まだコメントがありません<p>
+<% else %>
+　<% @comments.each do |comment| %>
+    <div class="comment-section">
+      <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <%= link_to comment.post.title, post_path(comment.post) %>
+　    <%= comment.content %>
+      <i class="far fa-comment"></i>
+      <%= comment.post.comments.count %>
+    </div>
+  <% end %>
+<% end %>

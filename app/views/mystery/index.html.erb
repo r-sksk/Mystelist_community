@@ -38,7 +38,9 @@
         <% if post.images.attached? %>
           <div class="images">
             <% post.images.each do |images| %>
-              <%= image_tag images %>
+              <%= link_to images, :rel => "lightbox" do %>
+                <%= image_tag images %>
+              <% end %>
             <% end %>
           </div>
         <% end %>
@@ -62,7 +64,7 @@
           <ul class="ranking-content">
 	          <li>
               <%= "第#{i}位  " %>
-              <%= rank.title %>
+              <%= link_to rank.title, post_path(rank) %>
               <i class ="fas fa-heart"></i>
               <%= rank.favorites.count %>
             </li>
@@ -78,7 +80,7 @@
           <ul class="ranking-content">
 	          <li>
               <%= "第#{i}位  " %>
-              <%= rank.title %>
+              <%= link_to rank.title, post_path(rank) %>
               <i class="far fa-comment"></i></i>
               <%= rank.comments.count %>
             </li>
@@ -94,7 +96,7 @@
           <ul class="ranking-content">
 	          <li>
               <%= "第#{i}位  " %>
-              <%= rank.title %>
+              <%= link_to rank.title, post_path(rank) %>
               <i class="far fa-eye"></i></i>
               <%= rank.impressions_count %>
             </li>
