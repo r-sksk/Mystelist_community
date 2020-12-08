@@ -76,7 +76,7 @@
   <% if @user.posts.empty? %>
     <p>まだ投稿がありません<p>
   <% else %>
-    <% @user.posts.each do |post| %>
+    <% @user_posts.each do |post| %>
       <div class="post-index">
         <div class="sub" >
           <div class="post-title">

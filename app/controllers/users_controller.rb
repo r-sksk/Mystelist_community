@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user! #アクセス制限
 
   def show
+    @user_posts = @user.posts.all.order(updated_at: :desc)
   end
 
   def favorites #いいね履歴
