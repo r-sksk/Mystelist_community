@@ -54,44 +54,73 @@
       }
     }
   }
-  .content-area {
-    border: 2px solid #000;
-    padding: 10px;
-    padding-bottom: 5px;
-    .sub {
-      display: flex;
-      .post-user {
-        font-weight: bold;
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .content-area {
+      border: 2px solid #000;
+      padding: 10px;
+      padding-bottom: 5px;
+      width: 70%;
+      .sub {
+        display: flex;
+        .post-user {
+          font-weight: bold;
+        }
+        .post-time {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .view {
+          .far.fa-eye {
+          }
+        }
       }
-      .post-time {
-        padding-left: 10px;
-        padding-right: 10px;
+      .main {
+        background-color: #ccc;
+        padding-top: 10px;
+        padding: 5px;
+        .post-title {
+          font-size: 20px;
+          font-weight: bolder;
+          padding-bottom: 10px;
+        }
+        .post-content {
+        }
+      }
+      .sns-share {
+        display: flex;
+        justify-content: flex-end;
+        margin: 5px;
+        .line {
+          padding-right: 5px;
+        }
+        .twitter {
+          padding-right: 5px;
+        }
       }
     }
-    .main {
-      background-color: #ccc;
-      padding-top: 10px;
-      padding: 5px;
-      .post-title {
-        font-size: 20px;
-        font-weight: bolder;
-        padding-bottom: 10px;
+    .recommended {
+      width: 25%;
+      border: 2px solid #000;
+      p {
+        margin: 0px;
+        margin-top: 10px;
+        text-align: center;
       }
-      .post-content {
-      }
-    }
-    .sns-share {
-      display: flex;
-      justify-content: flex-end;
-      margin: 5px;
-      .line {
-        padding-right: 5px;
-      }
-      .twitter {
-        padding-right: 5px;
+      .random-block {
+        padding: 5px;
+        border-bottom: 1px solid #666666;
+        .random-title {
+          padding-left: 5px;
+        }
+        .random-content {
+          font-size: 13px;
+        }
       }
     }
   }
+
   .comment-block {
     width: 70%;
     border: 2px solid #000;

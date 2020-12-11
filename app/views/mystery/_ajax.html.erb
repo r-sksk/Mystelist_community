@@ -1,10 +1,4 @@
- <% if user_signed_in? %>
-   <div class="action-menu">
-     <div class="view">
-       <i class="far fa-eye"></i>
-       <%= post.impressions_count %>
-     </div>
-     <div class="like">
+    <div class="like">
        <% if current_user.already_favorited?(post) %>
          <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
            <i class ="fas fa-heart"></i>
@@ -16,12 +10,3 @@
       <% end %>
       <%= post.favorites.count %>
     </div>
-    <div class="comment">
-      <%= link_to post_path(post) do %>
-        <i class="far fa-comment"></i>
-      <% end %>
-      <%= post.comments.count %>
-    </div>
-  </div>
-<% end %>
-</div>

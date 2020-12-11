@@ -18,6 +18,14 @@ class Post < ApplicationRecord
     Post.find(Impression.group(:impressionable_id).order('count(impressionable_id) desc').limit(3).pluck(:impressionable_id))
   end
 
+  def self.search(search) #postを検索
+    if search
+      where(['title LIKE ?', "%#{search}%"]) #検索とpost.titleの部分一致を表示
+    else
+      all
+   end
+  end
+
 end
 
 
