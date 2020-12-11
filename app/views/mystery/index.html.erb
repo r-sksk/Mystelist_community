@@ -45,17 +45,35 @@
           </div>
         <% end %>
 
-        <div class="post_<%= post.id %>">
-          <%= render 'ajax', post: post %>
-        </div>
-      <% end %>
-      <div class="pagination">
-        <%= paginate @posts %>
-      </div>
-    </div>
+        <% if user_signed_in? %>
+          <div class="action-menu">
+            <div class="view">
+              <i class="far fa-eye"></i>
+              <%= post.impressions_count %>
+            </div>
 
-    <div class="sidebar">
-      <h3>投稿ランキング</h3>
+            <div class="post_<%= post.id %>">
+              <%= render 'ajax', post: post %>
+            </div>
+
+            <div class="comment">
+              <%= link_to post_path(post) do %>
+                <i class="far fa-comment"></i>
+              <% end %>
+              <%= post.comments.count %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="pagination">
+      <%= paginate @posts %>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h3>投稿ランキング</h3>
       <div class="favorite-ranking">
         <div class="ranking-title">
           <h4>いいねの多い投稿</h4>
@@ -88,7 +106,7 @@
           </ul>
         <% end %>
       </div>
-       <div class="view-ranking">
+      <div class="view-ranking">
         <div class="ranking-title">
           <h4>閲覧数の多い投稿</h4>
         </div>

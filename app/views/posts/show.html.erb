@@ -1,31 +1,34 @@
-<div class="content-area">
-  <div class="sub">
-    <div class="post-user">
-      <%= link_to user_path(@post.user.id) do %>
-        投稿者<%= @post.user.name %>さん
+<div class="content-wrapper">
+  <div class="content-area">
+    <div class="sub">
+      <div class="post-user">
+        <%= link_to user_path(@post.user.id) do %>
+          投稿者<%= @post.user.name %>さん
+        <% end %>
+      </div>
+      <div class="post-time">
+        投稿日<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+      </div>
+      <% if @post.user_id == current_user.id %>
+        <%= link_to edit_post_path(@post) do %>
+          <i class="far fa-edit"></i>
+            編集する
+        <% end %>
       <% end %>
+      <div class="view">
+        <i class="far fa-eye"></i>
+        <%= @post.impressions_count %>
+      </div>
     </div>
-    <div class="post-time">
-      投稿日<%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
-    </div>
-    <% if @post.user_id == current_user.id %>
-      <%= link_to edit_post_path(@post) do %>
-        <i class="far fa-edit"></i>
-          編集する
-      <% end %>
-    <% end %>
-    <i class="far fa-eye"></i>
-    <%= @post.impressions_count %>
-  </div>
-  <div class="main">
-    <div class="post-title">
-      <%= @post.title %>
-    </div>
-    <div class="post-content">
-      <!-- 投稿されたコンテンツの改行・空白を表示 -->
-      <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+    <div class="main">
+      <div class="post-title">
+        <%= @post.title %>
+      </div>
+      <div class="post-content">
+        <!-- 投稿されたコンテンツの改行・空白を表示 -->
+        <%= safe_join(@post.content.split("\n"),tag(:br)) %>
 
-      <% if @post.images.attached? %>
+        <% if @post.images.attached? %>
           <div class="images">
             <% @post.images.each do |images| %>
               <%= link_to images, :rel => "lightbox" do %>
@@ -34,25 +37,39 @@
             <% end %>
           </div>
         <% end %>
-
-    </div>
-  </div>
-  <div class="sns-share">
-    <div class="line">
-      <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="http://localhost:3000/posts/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
-      <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-    </div>
-    <div class="twitter">
-      <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
-        <i class="fab fa-twitter-square fa-lg"></i>
-      <% end %>
-    </div>
-    <div class="facebook">
-      <div id="fb-root">
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=485300025780431&autoLogAppEvents=1" nonce="tyrq65aC"></script>
-        <div class="fb-share-button" data-href="http://localhost:3000/pots/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fmenus%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
       </div>
     </div>
+    <div class="sns-share">
+      <div class="line">
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="http://localhost:3000/posts/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+      </div>
+      <div class="twitter">
+        <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
+          <i class="fab fa-twitter-square fa-lg"></i>
+        <% end %>
+      </div>
+      <div class="facebook">
+        <div id="fb-root">
+          <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v9.0&appId=485300025780431&autoLogAppEvents=1" nonce="tyrq65aC"></script>
+          <div class="fb-share-button" data-href="http://localhost:3000/pots/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fmenus%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recommended">
+    <p>こんな話もいかがですか？</p>
+    <% @random.each do |random| %>
+      <div class="random-block">
+        <div class="random-title">
+          <%= link_to random.title, post_path(random) %>
+        </div>
+        <div class="random-content">
+          <%= random.content.truncate(40) %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
