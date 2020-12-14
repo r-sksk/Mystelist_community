@@ -33,36 +33,40 @@
     </div>
   </div>
   <div class="user-sidebar">
-    <div class="post">
-      <%= link_to new_post_path do %>
-        <i class="far fa-plus-square"></i>
-          投稿する
-      <% end %>
-    </div>
-    <div class="favorites">
-      <%= link_to user_favorites_path(@user) do %>
-        <i class="fas fa-heart"></i>
-          いいねした投稿
-      <% end %>
-    </div>
-    <div class="comments">
-      <%= link_to user_comments_path(@user) do %>
-        <i class="fas fa-heart"></i>
-          コメントした投稿
-      <% end %>
-    </div>
-    <div class="histories">
-      <%= link_to user_histories_path(@user) do %>
-        <i class="fas fa-history"></i>
-          閲覧履歴
-      <% end %>
-    </div>
-    <div class="logout">
-      <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fas fa-sign-out-alt"></i>
-        ログアウトする
-      <% end %>
-    </div>
+    <% if @user.id == current_user.id %>
+      <div class="post">
+        <%= link_to new_post_path do %>
+          <i class="far fa-plus-square"></i>
+            投稿する
+        <% end %>
+      </div>
+      <div class="favorites">
+        <%= link_to user_favorites_path(@user) do %>
+          <i class="fas fa-heart"></i>
+            いいねした投稿
+        <% end %>
+      </div>
+      <div class="comments">
+        <%= link_to user_comments_path(@user) do %>
+          <i class="far fa-comment"></i>
+            コメントした投稿
+        <% end %>
+      </div>
+      <div class="histories">
+        <%= link_to user_histories_path(@user) do %>
+          <i class="fas fa-history"></i>
+            閲覧履歴
+        <% end %>
+      </div>
+      <div class="logout">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>
+          ログアウトする
+        <% end %>
+      </div>
+    <% else %>
+      <p>このユーザの投稿を見る</p>
+    <% end %>
   </div>
 </div>
 
@@ -104,4 +108,7 @@
       </div>
     <% end %>
   <% end %>
+  <div class="user-pagination">
+    <%= paginate @user_posts %>
+  </div>
 </div>

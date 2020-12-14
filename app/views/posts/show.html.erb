@@ -15,10 +15,15 @@
             編集する
         <% end %>
       <% end %>
-      <div class="view">
-        <i class="far fa-eye"></i>
-        <%= @post.impressions_count %>
-      </div>
+        <div class="view">
+          閲覧数
+          <i class="far fa-eye"></i>
+            <%= @post.impressions_count %>
+        </div>
+        評価
+        <div class="post_<%= @post.id %>">
+          <%= render 'mystery/ajax', post: @post %>
+        </div>
     </div>
     <div class="main">
       <div class="post-title">
