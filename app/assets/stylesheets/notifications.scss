@@ -1,0 +1,16 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#notifications-index {
+  .notification-field {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 70%;
+    .form-inline {
+      .visitor-image {
+       width: 5%;
+      }
+    }
+  }
+}
