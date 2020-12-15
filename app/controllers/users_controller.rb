@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def favorites #いいね履歴
     @user = User.find(params[:user_id]) #find_userだとエラーになるため記述
-    @favorites = Favorite.where(user_id: @user.id)
+    @favorites = Favorite.where(user_id: @user.id).order(updated_at: :desc)
   end
 
   def histories #閲覧履歴

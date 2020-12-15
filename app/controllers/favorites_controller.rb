@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = current_user.favorites.create(post_id: params[:post_id]) #current.userに結びついたいいねを作成
+    @post.create_notification_like(current_user)
   end
 
   def destroy

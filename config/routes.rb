@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     get 'comments' => 'users#comments'
   end
 
+  resources :notifications, only: [:index]
+
   root 'mystery#index'
 end

@@ -58,6 +58,12 @@
             閲覧履歴
         <% end %>
       </div>
+      <div class="notifications">
+        <%= link_to notifications_path(current_user) do %>
+          <i class="far fa-bell fa-lg"></i>
+            通知一覧
+        <% end %>
+      </div>
       <div class="logout">
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fas fa-sign-out-alt"></i>
