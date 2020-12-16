@@ -13,6 +13,12 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   validates :name, presence:true
 
+  def self.guest #ゲストログイン
+    find_or_create_by(name: 'Guest', email: 'guest@example.com') do |user| #ゲストユーザーがデータベースにあれば取り出し、なければ作成する
+      user.password = SecureRandom.urlsafe_base64 #ランダムパスワードの作成
+    end
+  end
+
   def already_favorited?(post)  #いいねをしたか判定をする
     self.favorites.exists?(post_id: post.id) #self=current.userに結びついているいいねの中でこのpost_idが存在しているか
   end

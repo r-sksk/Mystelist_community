@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
+  devise_scope :user do #deviseのコントローラーに追記
+    post '/users/guest_sign_in', to: 'users/sessions#new_guest' #ゲストユーザーログイン機能のルート
+  end
 
   resources :posts do
     resource :favorites, only: [:create, :destroy]  #いいね機能のルート
@@ -12,7 +18,7 @@ Rails.application.routes.draw do
     get 'comments' => 'users#comments'
   end
 
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] #通知機能のルート
 
   root 'mystery#index'
 end
