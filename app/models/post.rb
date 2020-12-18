@@ -67,7 +67,7 @@ class Post < ApplicationRecord
       where(['title LIKE ?', "%#{search}%"]) #検索とpost.titleの部分一致を表示
     else
       all
-   end
+    end
   end
 
 end

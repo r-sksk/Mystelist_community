@@ -4,10 +4,12 @@
       <div class="content">
         <div class="user-about">
           <div class="image">
-            <% if post.user.image.attached? %>
-              <%= image_tag post.user.image %>
-            <% else %>
-              <%= image_tag "nouser.png" %>
+            <%= link_to user_path(post.user.id) do %>
+              <% if post.user.image.attached? %>
+                <%= image_tag post.user.image %>
+              <% else %>
+                <%= image_tag "nouser.png" %>
+              <% end %>
             <% end %>
           </div>
           <div class="profile">
@@ -73,7 +75,15 @@
   </div>
 
   <div class="sidebar">
-    <h3>投稿ランキング</h3>
+    <div class="main-title">
+      <div class="crown-image">
+        <%= image_tag "crown.png" %>
+      </div>
+      <%= "投稿ランキング" %>
+      <div class="crown-image">
+        <%= image_tag "crown.png" %>
+      </div>
+    </div>
       <div class="favorite-ranking">
         <div class="ranking-title">
           <h4>いいねの多い投稿</h4>

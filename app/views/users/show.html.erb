@@ -71,7 +71,8 @@
         <% end %>
       </div>
     <% else %>
-      <p>このユーザの投稿を見る</p>
+      <i class="fas fa-user-secret fa-5x"></i>
+      <h3><%= "#{@user.name}さんのみご覧いただけます" %></h3>
     <% end %>
   </div>
 </div>
