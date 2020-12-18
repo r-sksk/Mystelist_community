@@ -61,7 +61,12 @@
         display: flex;
         padding: 15px;
         .user-image {
-          width: 30%;
+          img {
+            border-radius: 50%;
+            background-position: center center;
+            width: 200px;
+            height: 200px;
+          }
         }
         .user-info {
           margin-left: 10px;
@@ -75,11 +80,8 @@
       width: 20%;
       padding: 20px;
       font-size: 20px;
-      .box {
-        width: 100px;
-        height: 100px;
-        background-color: #000;
-        margin: 10px auto;
+      .fas.fa-user-secret {
+        padding-left: 60px;
       }
     }
   }

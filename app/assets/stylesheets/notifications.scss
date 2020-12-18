@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #notifications-index {
+  .notification-title {
+    h1 {
+      padding-left: 80px;
+    }
+  }
   .notification-field {
     margin-left: 90px;
     margin-top: 30px;
@@ -10,7 +15,12 @@
     width: 70%;
     .form-inline {
       .visitor-image {
-       width: 5%;
+        img {
+          border-radius: 50%;
+          background-position: center center;
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }

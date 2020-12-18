@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
+  devise_for :users, controllers: {  #deviseのコントローラーを編集・変更
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   devise_scope :user do #deviseのコントローラーに追記
