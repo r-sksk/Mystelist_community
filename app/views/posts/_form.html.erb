@@ -5,8 +5,11 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :content, "本文" %>
-    <%= f.text_area :content, rows: 5  %>
+    <div class="label">
+      <%= f.label :content, "本文" %>
+      <p id="counter">0文字</p>
+    </div>
+    <%= f.text_area :content, id: "input-text", rows: 5 %>
   </div>
   <div class="form-group">
     <%= f.label :images, "画像を添付" %>

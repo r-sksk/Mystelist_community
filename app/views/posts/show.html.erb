@@ -20,7 +20,7 @@
           <i class="far fa-eye"></i>
             <%= @post.impressions_count %>
         </div>
-        評価
+        評価&nbsp
         <div class="post_<%= @post.id %>">
           <%= render 'mystery/ajax', post: @post %>
         </div>
@@ -69,6 +69,14 @@
       <div class="random-block">
         <div class="random-title">
           <%= link_to random.title, post_path(random) %>
+          <div class="action-menu">
+            <i class="far fa-eye fa-xs"></i>
+            <%= random.impressions_count %>
+            <i class ="fas fa-heart fa-xs"></i>
+            <%= random.favorites.count %>
+            <i class="far fa-comment fa-xs"></i>
+            <%= random.comments.count %>
+          </div>
         </div>
         <div class="random-content">
           <%= random.content.truncate(40) %>

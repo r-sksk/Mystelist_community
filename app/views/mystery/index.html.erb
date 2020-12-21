@@ -20,11 +20,19 @@
                 <% end %>
               </div>
               <div class="word">
-                <%= "つぶやき：#{post.user.word}" %>
+                <% if post.user.word.blank? %>
+                  <%= "つぶやき：まだ記述がありません" %>
+                <% else %>
+                  <%= "つぶやき：#{post.user.word}" %>
+                <% end %>
               </div>
             </div>
             <div class="self-introduction">
-              <%= "自己紹介：#{post.user.self_introduction}" %>
+              <% if post.user.self_introduction.blank? %>
+                <%= "自己紹介：まだ記述がありません" %>
+              <% else %>
+                <%= "自己紹介：#{post.user.self_introduction}" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -98,6 +106,7 @@
             </li>
             <span>投稿者 <%= rank.user.name %>さん</span>
           </ul>
+          <hr>
         <% end %>
       </div>
       <div class="comment-ranking">
@@ -114,6 +123,7 @@
             </li>
             <span>投稿者 <%= rank.user.name %>さん</span>
           </ul>
+          <hr>
         <% end %>
       </div>
       <div class="view-ranking">
@@ -130,9 +140,12 @@
             </li>
             <span>投稿者 <%= rank.user.name %>さん</span>
           </ul>
+          <hr>
         <% end %>
       </div>
     </div>
   </div>
+
+
 
 
