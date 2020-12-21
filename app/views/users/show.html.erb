@@ -10,20 +10,30 @@
         <% end %>
       </div>
       <div class="user-info">
+        <p>ユーザー情報</p>
         <div class="user-name">
           <%= "ユーザー名： #{@user.name}" %>
         </div>
         <div class="user-word">
-          <%= "つぶやき: #{@user.word}" %>
+          <% if @user.word.blank? %>
+            <%= "つぶやき：まだ記述がありません" %>
+          <% else %>
+            <%= "つぶやき: #{@user.word}" %>
+          <% end %>
         </div>
         <div class="user-self">
-          <%= "自己紹介: #{@user.self_introduction}" %>
+          <% if @user.self_introduction.blank? %>
+            <%= "自己紹介：まだ記述がありません" %>
+          <% else %>
+            <%= "自己紹介: #{@user.self_introduction}" %>
+          <% end %>
         </div>
         <% if @user.id == current_user.id %>
           <%= link_to edit_user_path(@user) do %>
             <i class="fas fa-user-edit"></i>
               編集する
           <% end %>
+          <br>
           <%= link_to user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
             <i class="fas fa-user-alt-slash"></i>
               アカウントを削除する
@@ -34,6 +44,7 @@
   </div>
   <div class="user-sidebar">
     <% if @user.id == current_user.id %>
+      <p>ユーザーメニュー</p>
       <div class="post">
         <%= link_to new_post_path do %>
           <i class="far fa-plus-square"></i>
@@ -107,6 +118,20 @@
                   削除する
               <% end %>
             <% end %>
+          </div>
+          <div class="action-menu">
+            <div class="view">
+              <i class="far fa-eye"></i>
+              <%= post.impressions_count %>
+            </div>
+            <div class="like">
+              <i class ="fas fa-heart"></i>
+              <%= post.favorites.count %>
+            </div>
+            <div class="comment">
+             <i class="far fa-comment"></i>
+              <%= post.comments.count %>
+            </div>
           </div>
         </div>
         <div class="post-content">

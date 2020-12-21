@@ -17,6 +17,15 @@
         border: 1px solid #ccc;
         border-radius: 5px;
       }
+      .label {
+        display: flex;
+        margin-bottom: 10px;
+        #counter {
+          margin: 0;
+          margin-top: 3px;
+          margin-left: 10px;
+        }
+      }
       textarea {
         width: 100%;
         height: 300px;
@@ -108,16 +117,32 @@
       border: 2px solid #000;
       p {
         margin: 0px;
-        margin-top: 10px;
         text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: bold;
+        background-color: lavender;
       }
       .random-block {
+        margin-top: 10px;
+        padding-bottom: 10px;
         padding: 5px;
         border-bottom: 1px solid #666666;
         .random-title {
-          padding-left: 5px;
+          display: flex;
+          .action-menu {
+            justify-content: flex-end;
+            padding-left: 26px;
+            font-size: 13px;
+            float: right;
+            margin-top: 3px;
+            .fas.fa-heart {
+              color: pink;
+            }
+          }
         }
         .random-content {
+          padding-top: 5px;
           font-size: 13px;
         }
       }

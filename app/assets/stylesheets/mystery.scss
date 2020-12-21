@@ -22,6 +22,7 @@
 
         .user-about {
           display: flex;
+          background-color: #FFFFBB;
 
           .image {
             padding-top: 5px;
@@ -57,13 +58,13 @@
           }
         }
         .title-text {
+          background-color: lavender;
           .title {
             font-weight: bold;
             text-decoration: none;
           }
           .text {
             padding: 0px;
-            background-color: lavender;
           }
         }
         .images {
@@ -91,6 +92,8 @@
         display: flex;
         font-size: 18px;
         font-weight: bold;
+        text-align: center;
+        border-bottom: solid 3px black;
         margin-bottom: 20px;
         .crown-image {
           width:10%;
@@ -102,9 +105,12 @@
         border: 2px solid #000;
         padding-top: 0px;
         background-color: floralwhite;
+        align-self: start;
         .ranking-title {
-          margin: 0px;
-          padding-left: 10px;
+          text-align: center;
+          background: #ff66ff;/*背景色*/
+          padding: 0.5em;/*文字まわり（上下左右）の余白*/
+          line-height: 2px;
         }
         .ranking-content {
           list-style: none;
@@ -121,8 +127,10 @@
         margin-top: 20px;
         background-color: lemonchiffon;
         .ranking-title {
-          margin: 0px;
-          padding-left: 10px;
+          text-align: center;
+          background: #FFCC33;/*背景色*/
+          padding: 0.5em;/*文字まわり（上下左右）の余白*/
+          line-height: 2px;
         }
         .ranking-content {
           list-style: none;
@@ -134,10 +142,11 @@
         border: 2px solid #000;
         padding-top: 0px;
         margin-top: 20px;
-        background-color: lavender;
         .ranking-title {
-          margin: 0px;
-          padding-left: 10px;
+          text-align: center;
+          background: #c2edff;/*背景色*/
+          padding: 0.5em;/*文字まわり（上下左右）の余白*/
+          line-height: 2px;
         }
         .ranking-content {
           list-style: none;
