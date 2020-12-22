@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   before_action :force_redirect_unless_my_post, only: [:edit, :update, :destroy]
 
   def show
+    @post_other = @post.user.posts.all.order(updated_at: :desc)
+
     @random = Post.order("RANDOM()").limit(10) #ランダムでPostから投稿を取得
     impressionist(@post, nil, unique: [:impressionable_id, :ip_address])
     new_history = @post.browsinghistories.new
