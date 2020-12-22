@@ -61,37 +61,61 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="recommended">
-    <p>こんな話もいかがですか？</p>
-    <% @random.each do |random| %>
-      <div class="random-block">
-        <div class="random-title">
-          <%= link_to random.title, post_path(random) %>
-          <div class="action-menu">
-            <i class="far fa-eye fa-xs"></i>
-            <%= random.impressions_count %>
-            <i class ="fas fa-heart fa-xs"></i>
-            <%= random.favorites.count %>
-            <i class="far fa-comment fa-xs"></i>
-            <%= random.comments.count %>
-          </div>
-        </div>
-        <div class="random-content">
-          <%= random.content.truncate(40) %>
-        </div>
-      </div>
+    <hr>
+    <div id="comments_area">
+      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+    <% if user_signed_in? %>
+      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     <% end %>
   </div>
+  <div class="sidebar">
+    <div class="post-other">
+      <p>このユーザーの他の投稿  <%= @post_other.count %>件</p>
+      <% @post_other.first(5).each do |post| %>
+        <div class="other-block">
+          <div class="other-title">
+            <%= link_to post.title, post_path(post) %>
+            <div class="action-menu">
+              <i class="far fa-eye fa-xs"></i>
+              <%= post.impressions_count %>
+              <i class ="fas fa-heart fa-xs"></i>
+              <%= post.favorites.count %>
+              <i class="far fa-comment fa-xs"></i>
+              <%= post.comments.count %>
+            </div>
+          </div>
+          <div class="other-content">
+            <%= post.content.truncate(40) %>
+          </div>
+        </div>
+      <% end %>
+      <p><%= link_to "もっと見る", user_path(@post.user.id) %></p>
+    </div>
+    <div class="recommended">
+      <p>こんな話もいかがですか？</p>
+      <% @random.each do |random| %>
+        <div class="random-block">
+          <div class="random-title">
+            <%= link_to random.title, post_path(random) %>
+            <div class="action-menu">
+              <i class="far fa-eye fa-xs"></i>
+              <%= random.impressions_count %>
+              <i class ="fas fa-heart fa-xs"></i>
+              <%= random.favorites.count %>
+              <i class="far fa-comment fa-xs"></i>
+              <%= random.comments.count %>
+            </div>
+          </div>
+          <div class="random-content">
+            <%= random.content.truncate(40) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<div id="comments_area">
-  <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/index', locals: { comments: @comments } %>
-</div>
-<% if user_signed_in? %>
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-<% end %>
-</div>
+

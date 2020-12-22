@@ -1,4 +1,7 @@
-<h4><%= comments.count %>件のコメント</h4>
+<p>
+  <%= comments.count %>件のコメント
+  <i class="far fa-comment"></i>
+</p>
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="comment-block">
