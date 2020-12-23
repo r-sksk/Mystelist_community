@@ -92,7 +92,9 @@
           </div>
         </div>
       <% end %>
-      <p><%= link_to "もっと見る", user_path(@post.user.id) %></p>
+      <% if @post_other.count > 5 %>
+        <p><%= link_to "もっと見る", user_path(@post.user.id) %></p>
+      <% end %>
     </div>
     <div class="recommended">
       <p>こんな話もいかがですか？</p>

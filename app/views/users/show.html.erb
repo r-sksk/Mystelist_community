@@ -54,7 +54,7 @@
       <div class="favorites">
         <%= link_to user_favorites_path(@user) do %>
           <i class="fas fa-heart"></i>
-            いいねした投稿
+            評価した投稿
         <% end %>
       </div>
       <div class="comments">
@@ -129,7 +129,7 @@
               <%= post.favorites.count %>
             </div>
             <div class="comment">
-             <i class="far fa-comment"></i>
+              <i class="far fa-comment"></i>
               <%= post.comments.count %>
             </div>
           </div>
