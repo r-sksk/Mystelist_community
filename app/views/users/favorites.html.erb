@@ -1,14 +1,18 @@
-<h1><%= "#{current_user.name}さんのいいね一覧" %></h1>
-<% if @favorites.empty? %>
-  <p>まだいいねがありません<p>
-<% else %>
-　<% @favorites.each do |favorite| %>
-    <div class="favorite-section">
-      <%= "投稿者" %>
-      <%= link_to favorite.post.user.name, user_path(favorite.post.user) %>
-      <%= link_to favorite.post.title, post_path(favorite.post) %>
-　    <i class ="fas fa-heart"></i>
-      <%= favorite.post.favorites.count %>
-    </div>
+<div class="container">
+  <h1><%= "#{current_user.name}さんが評価した投稿一覧" %></h1>
+  <% if @favorites.empty? %>
+    <p>まだ評価した投稿がありません<p>
+  <% else %>
+　  <% @favorites.each do |favorite| %>
+      <div class="favorite-section">
+        <%= "投稿者" %>
+        <%= link_to favorite.post.user.name, user_path(favorite.post.user) %>
+        <%= "投稿名" %>
+        <%= link_to favorite.post.title, post_path(favorite.post) %>
+　      <i class ="fas fa-heart"></i>
+        <%= favorite.post.favorites.count %>
+      </div>
+      <hr>
+    <% end %>
   <% end %>
-<% end %>
+</div>

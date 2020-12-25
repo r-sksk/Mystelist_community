@@ -1,3 +1,13 @@
+<% if @post.errors.any? %>
+  <div class="errors">
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @post, local:true do |f| %>
   <div class="form-group">
     <%= f.label :title, "タイトル" %>
@@ -11,6 +21,7 @@
     </div>
     <%= f.text_area :content, id: "input-text", rows: 5 %>
   </div>
+
   <div class="form-group">
     <%= f.label :images, "画像を添付" %>
     <%= f.file_field :images, multiple: true %><br>
@@ -19,4 +30,5 @@
   <div class="submit-block">
     <%= f.submit "投稿する", class: "button" %>
   </div>
+
 <% end %>
