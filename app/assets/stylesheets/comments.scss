@@ -3,15 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #users-comments {
-  p {
-    font-size: 25px;
-  }
-  .comment-section {
-    .far.fa-comment {
-      padding-left: 10px;
+  .container {
+    h1 {
+      margin-top: 30px;
+      padding-top: 20px;
+      padding-left: 20px;
+      margin-bottom: 0;
     }
-      border: 1px solid #000;
+    p {
+      font-size: 25px;
+      padding-left: 20px;
+    }
+    .comment-section {
       width: 70%;
       padding: 5px;
+      padding-left: 20px;
+      .far.fa-comment {
+        padding-left: 10px;
+      }
+    }
   }
 }
