@@ -39,6 +39,7 @@ img {
   font-weight: bold;
   font-size: 15px;
 }
+
 .search-button:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #333;     /* 背景色     */
