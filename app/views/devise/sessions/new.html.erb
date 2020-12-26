@@ -22,8 +22,10 @@
       <%= f.submit "ログイン", class: "button" %>
     </div>
 
-    <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
-    <%= render "devise/shared/links" %>
+    <div>
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 <% end %>
 
