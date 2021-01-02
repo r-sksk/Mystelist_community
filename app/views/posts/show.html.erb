@@ -45,13 +45,10 @@
       </div>
     </div>
     <div class="sns-share">
-      <div class="line">
-        <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="http://localhost:3000/posts/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
-        <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-      </div>
       <div class="twitter">
         <%= link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do %>
-          <i class="fab fa-twitter-square fa-lg"></i>
+          <i class="fab fa-twitter"></i>
+          twitterでシェアする
         <% end %>
       </div>
     </div>

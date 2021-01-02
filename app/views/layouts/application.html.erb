@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Mystelist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,9 +15,11 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
-    <%= render 'shared/header' %>
-    <%= render 'shared/toast' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div id="wrapper">
+      <%= render 'shared/header' %>
+      <%= render 'shared/toast' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

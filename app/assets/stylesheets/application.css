@@ -19,6 +19,12 @@ body {
   margin:0 auto;
 }
 
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 img {
   max-width: 100%;
 }
@@ -100,6 +106,7 @@ img {
   padding: 10px 0px;
   font-size: 15px;
   margin-top: 20px;
+  margin-top: auto;
 }
 
 .toast {
