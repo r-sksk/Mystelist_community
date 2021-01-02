@@ -1,4 +1,4 @@
-#registrations-new, #sessions-new {
+#registrations-new, #registrations-create, #sessions-new, #sessions-create {
   font-family: sans-serif;
   background-color: #34495e;
   .box {
@@ -12,6 +12,9 @@
     transform: translate(-50%,-50);
     background: #191919;
     text-align: center;
+    #error_explanation {
+      color: red;
+    }
     .field {
       color: white;
     }
