@@ -20,10 +20,6 @@ class UsersController < ApplicationController
     @comments = Comment.where(user_id: @user.id).order(created_at: :desc).limit(20)
   end
 
-  def new
-    @user = User.new
-  end
-
   def edit
   end
 
