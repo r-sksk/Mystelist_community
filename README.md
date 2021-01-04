@@ -1,24 +1,20 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+使用技術
+- ユーザーアカウントの作成・編集・削除機能、簡易ログイン機能（使用ライブラリ：devise)
+- ユーザー詳細ページの表示
+- ソーシャルログイン機能（Geogle API）
+- SNS共有機能
+- 投稿記事のCRUD機能
+- 投稿一覧、詳細ページの表示
+- 画像投稿機能（使用ライブラリ：active_storage）複数枚可、画像のポップアップ拡大表示機能（JSライブラリ：lightbox）
+- ページネーション機能（使用ライブラリ：kaminari）
+- 投稿閲覧履歴機能
+- 投稿記事に対するPV数カウント機能（使用ライブラリ：impressionist）
+- 投稿記事に対するいいね機能（非同期処理）
+- 投稿記事に対するコメント機能（非同期処理）
+- 投稿記事に対するランキング機能（いいね数、コメント数、PV数）
+- CSSレイアウトモジュールのFlexbox等の知識、サイドバーの実装
+- fontawesomeの導入（Stack iconの実装）
+- ユーザー通知機能（ユーザーが投稿した記事に対するいいね、コメントが発生した場合に表示する）
+- JSによる投稿記事の文字数のカウントやフラッシュメッセージのレイアウト
+- 投稿記事検索機能
+- railsの日本語化、バリデーションによるエラーの表示、日本語化
