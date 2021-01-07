@@ -3,31 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #notifications-index {
-  .notification-title {
-    h1 {
-      padding-left: 80px;
+  .container {
+    background-color: #333;
+    .notification-title {
+      h1 {
+        padding-left: 80px;
+        color: red;
+      }
     }
-  }
-  .notification-field {
-    margin-left: 90px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 70%;
-    .form-inline {
-      .visitor-image {
-        img {
-          border-radius: 50%;
-          background-position: center center;
-          width: 40px;
-          height: 40px;
+    .notification-field {
+      margin-left: 90px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      width: 70%;
+      .form-inline {
+        .visitor-image {
+          img {
+            border-radius: 50%;
+            background-position: center center;
+            width: 40px;
+            height: 40px;
+          }
         }
       }
     }
-  }
-  .notification-body {
-    p {
-      padding-left: 80px;
-      font-size: 25px;
+    .notification-body {
+      p {
+        padding-left: 80px;
+        font-size: 25px;
+      }
     }
   }
 }
