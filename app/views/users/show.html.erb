@@ -42,8 +42,8 @@
       </div>
     </div>
   </div>
-  <div class="user-sidebar">
-    <% if @user.id == current_user.id %>
+  <% if @user.id == current_user.id %>
+    <div class="user-sidebar">
       <p>ユーザーメニュー</p>
       <div class="post">
         <%= link_to new_post_path do %>
@@ -81,11 +81,8 @@
           ログアウトする
         <% end %>
       </div>
-    <% else %>
-      <i class="fas fa-user-secret fa-5x"></i>
-      <h3><%= "#{@user.name}さんのみご覧いただけます" %></h3>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="post-info">

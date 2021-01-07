@@ -54,11 +54,11 @@
     </div>
     <hr>
     <div id="comments_area">
-      <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+      <!-- 投稿されたコメント一覧を投稿の詳細ページに表示するためのrender -->
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>
     <% if user_signed_in? %>
-      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+      <!-- コメント入力欄を投稿の詳細ページに表示するためのrender -->
       <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     <% end %>
   </div>

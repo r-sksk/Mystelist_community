@@ -3,9 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #users-new, #users-edit, #users-create, #users-update, #users-show {
+  .container {
+    h1 {
+      color: white;
+    }
+    .errors {
+      background-color: #333;
+      padding: 5px;
+    }
   form {
     .form-group {
       margin: 10px 0;
+      color: white;
       label {
         display: block;
       }
@@ -33,6 +42,7 @@
     }
     .image-preview {
       max-width: 200px;
+      color: white;
     }
     .submit-block {
       display: flex;
@@ -60,9 +70,14 @@
       }
     }
   }
+}
+  h1 {
+    color: red;
+  }
   .controll-section {
     display: flex;
     justify-content: space-between;
+
     .user-section {
       border: 2px solid #000;
       width: 70%;
@@ -116,16 +131,20 @@
         margin-bottom: 5px;
         border-bottom: solid 2px #000;
       }
-      .fas.fa-user-secret {
-        padding-left: 60px;
-      }
+    }
+  }
+  .post-info {
+    h2 {
+      color: red;
     }
   }
   .post-section {
     p {
       font-size: 25px;
+      color: red;
     }
     .post-index {
+      background-color: #ffffff;
       border: 2px solid #000;
       margin-bottom: 10px;
       padding: 5px;
@@ -136,6 +155,7 @@
           font-weight: bold;
           padding : 5px;
           padding-bottom: 0px;
+          border-bottom: 1px solid #000;
         }
         .time-action {
           padding: 5px;
@@ -159,6 +179,8 @@
         }
       }
       .post-content {
+        margin-top: 10px;
+        margin-bottom: 5px;
         background-color: lavender
       }
     }
