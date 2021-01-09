@@ -14,7 +14,51 @@
     </p>
     <% @posts.each do |post| %>
       <div class="content">
+        <div class="title-text">
+          <div class="title-action">
+            <div class="title">
+              <%=link_to post.title, post_path(post) %>
+            </div>
+            <% if user_signed_in? %>
+              <div class="action-menu">
+                <div class="view">
+                  <i class="far fa-eye"></i>
+                  <%= post.impressions_count %>
+                </div>
+                <div class="post_<%= post.id %>">
+                  <%= render 'ajax', post: post %>
+                </div>
+                <div class="comment">
+                  <%= link_to post_path(post) do %>
+                    <i class="far fa-comment"></i>
+                  <% end %>
+                  <%= post.comments.count %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="text">
+            <%= post.content.truncate(140) %>
+          </div>
+        </div>
+
+        <% if post.images.attached? %>
+          <div class="images">
+            <% post.images.each do |images| %>
+              <%= link_to images, :rel => "lightbox" do %>
+                <%= image_tag images %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
         <div class="user-about">
+        　<div class="post-day">
+            投稿日:<%= post.created_at.strftime('%Y/%m/%d') %>
+          </div>
+          <div class="contributor">
+            投稿者:
+          </div>
           <div class="image">
             <%= link_to user_path(post.user.id) do %>
               <% if post.user.image.attached? %>
@@ -39,54 +83,8 @@
                 <% end %>
               </div>
             </div>
-            <div class="self-introduction">
-              <% if post.user.self_introduction.blank? %>
-                <%= "自己紹介：まだ記述がありません" %>
-              <% else %>
-                <%= "自己紹介：#{post.user.self_introduction}" %>
-              <% end %>
-            </div>
           </div>
         </div>
-        <hr>
-        <div class="title-text">
-          <div class="title">
-            <%=link_to post.title, post_path(post) %>
-          </div>
-          <div class="text">
-            <%= post.content.truncate(140) %>
-          </div>
-        </div>
-
-        <% if post.images.attached? %>
-          <div class="images">
-            <% post.images.each do |images| %>
-              <%= link_to images, :rel => "lightbox" do %>
-                <%= image_tag images %>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <div class="action-menu">
-            <div class="view">
-              <i class="far fa-eye"></i>
-              <%= post.impressions_count %>
-            </div>
-
-            <div class="post_<%= post.id %>">
-              <%= render 'ajax', post: post %>
-            </div>
-
-            <div class="comment">
-              <%= link_to post_path(post) do %>
-                <i class="far fa-comment"></i>
-              <% end %>
-              <%= post.comments.count %>
-            </div>
-          </div>
-        <% end %>
       </div>
     <% end %>
 
