@@ -17,7 +17,6 @@
     align-items: start;
     justify-content: space-between;
     margin-bottom: 20px;
-
     .content-block {
       p {
         font-weight: bold;
@@ -31,43 +30,84 @@
       border: 2px solid #000;
       padding: 20px;
       width: 70%;
-      background-color: ghostwhite;
-
+      background-color:rgba(0,0,0,0.5);
       .content {
         border: 2px solid #000;
         padding: 10px;
         margin-bottom: 10px;
-        background-color: whitesmoke;
-
+        background-color: white;
+        .title-text {
+          background-color: lavender;
+          .title-action {
+            display: flex;
+            .title {
+              font-weight: bold;
+              text-decoration: none;
+              border-bottom: 1px solid #000;
+              a {
+                color: red;
+              }
+            }
+            .action-menu {
+              display: flex;
+              justify-content: flex-end;
+              margin-left: 10px;
+              .like {
+                padding-left: 10px;
+              }
+              .comment {
+                padding-left: 10px;
+                text-decoration: none;
+              }
+            }
+          }
+          .text {
+            margin-top: 5px;
+            padding: 0px;
+          }
+          .images {
+            width: 25%;
+          }
+        }
         .user-about {
           display: flex;
           background-color: #FFFFBB;
-
+          justify-content: flex-end;
+          font-size: 13px;
+          .post-day {
+            padding-top: 8px;
+          }
+          .contributor {
+            padding-top: 8px;
+            padding-left: 10px;
+          }
           .image {
-            padding-top: 5px;
+            margin-left: 3px;
             img {
               border-radius: 50%;
               background-position: center center;
-              width: 40px;
-              height: 40px;
+              width: 25px;
+              height: 25px;
+              margin-top: 5px;
             }
           }
-
           .profile {
-            margin-left: 10px;
-
+            margin-left: 2px;
+            padding-top: 8px;
             .name-word {
               width: 100%;
               display: flex;
               margin-bottom: 5px;
-
               .name {
                 font-weight: bold;
+                a {
+                  color: red;
+                }
               }
-
               .word {
                 margin-left: 10px;
-                font-size: 14px;
+                font-size: 13px;
+                color: red;
               }
             }
             .self-introduction {
@@ -76,38 +116,13 @@
             }
           }
         }
-        .title-text {
-          background-color: lavender;
-          .title {
-            font-weight: bold;
-            text-decoration: none;
-          }
-          .text {
-            padding: 0px;
-          }
-        }
-        .images {
-          width: 25%;
-        }
-        .action-menu {
-          display: flex;
-          justify-content: flex-end;
-          .like {
-            padding-left: 10px;
-          }
-          .comment {
-            padding-left: 10px;
-            text-decoration: none;
-          }
-        }
       }
     }
-
     .sidebar {
       border: 2px solid #000;
       width: 20%;
       padding: 20px;
-      background-color: white;
+      background-color: rgba(0,0,0,0.5);
       a {
         color: red;
       }
@@ -130,6 +145,7 @@
         border: 2px solid #000;
         padding-top: 0px;
         align-self: start;
+        background-color: white;
         .ranking-title {
           text-align: center;
           background: #000;/*背景色*/
@@ -151,6 +167,7 @@
         padding-top: 0px;
         margin-top: 20px;
         transform:rotate(-1deg);
+        background-color: white;
         .ranking-title {
           text-align: center;
           background: #000;/*背景色*/
@@ -169,6 +186,7 @@
         padding-top: 0px;
         margin-top: 20px;
         transform:rotate(1deg);
+        background-color: white;
         .ranking-title {
           text-align: center;
           background: #000;/*背景色*/
