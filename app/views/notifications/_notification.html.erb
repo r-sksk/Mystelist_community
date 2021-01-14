@@ -1,0 +1,49 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class="notification-field">
+  <div class="form-inline" >
+    <span>
+      <div class="visitor-image">
+        <%= link_to user_path(visitor) do %>
+          <% if visitor.image.attached? %>
+            <%= image_tag visitor.image %>
+          <% else %>
+            <%= image_tag "nouser.png" %>
+          <% end %>
+        <% end %>
+      </div>
+      <strong>
+        <%= visitor.name %>
+        <%= 'さんが' %>
+      </strong>
+    </span>
+
+    <% case notification.action %>
+      <% when 'like' then %>
+        <%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
+        <%= "にいいねしました" %>
+
+      <% when 'comment' then %>
+        <% if notification.post.user_id == visited.id %>
+          <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
+        <% else %>
+          <span>
+            <strong>
+              <%= link_to notification.post.user.name + 'さんの投稿', notification.post %>
+            </strong>
+          </span>
+        <% end %>
+        <%= "にコメントしました" %>
+        <p>
+          <div class="text-muted.mb-0">
+            <%= Comment.find_by(id: notification.comment_id)&.content %>
+          </div>
+        </p>
+    <% end %>
+
+    <div class="small.text-muted.text-right">
+      <%= notification.created_at.strftime('%Y/%m/%d %H:%M') %>
+      <hr>
+    </div>
+  </div>
+</div>

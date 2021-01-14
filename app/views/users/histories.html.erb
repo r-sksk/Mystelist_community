@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= "#{current_user.name}さんの閲覧履歴（過去１０件まで）" %></h1>
+  <% if @histories.empty? %>
+    <p>まだ閲覧履歴がありません<p>
+  <% else %>
+    <% @histories.each do |history| %>
+      <div class="history-section">
+        <%= history.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <%= link_to history.post.title, post_path(history.post) %>
+      </div>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

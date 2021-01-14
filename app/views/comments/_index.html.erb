@@ -1,0 +1,41 @@
+<p>
+  <%= comments.count %>件のコメント
+  <i class="far fa-comment"></i>
+</p>
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <div class="comment-block">
+      <div class="comment-infomation">
+        <div class="image-name">
+          <div class="comment-image">
+            <%= link_to user_path(comment.user.id) do %>
+              <% if comment.user.image.attached? %>
+                <%= image_tag comment.user.image %>
+              <% else %>
+                <%= image_tag "nouser.png" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="comment-name">
+            <%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
+          </div>
+        </div>
+        <div class="comment-content">
+          <%= safe_join(comment.content.split("\n"),tag(:br)) %>
+        </div>
+        <div class="time-trash">
+          <div class="comment-time">
+            <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+          </div>
+          <% if comment.user == current_user %>
+            <div class="comment-trash">
+              <%= link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+                <i class="fas fa-trash" ></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

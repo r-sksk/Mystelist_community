@@ -1,0 +1,162 @@
+<div class="guide">
+  <p>
+    本サイトは世の中に出回っている心霊・オカルト・ミステリー系の話や
+    あなたが実際に体験した不思議な出来事を共有・投稿できるサービスとなっております。
+    <br>あなたの投稿をお待ちしております。気軽にご利用ください。  管理人より
+  </p>
+</div>
+<div class="content-wrapper">
+  <div class="content-block">
+    <p>
+      <i class="fab fa-snapchat-ghost"></i>
+      投稿一覧
+      <i class="fab fa-snapchat-ghost"></i>
+    </p>
+    <% @posts.each do |post| %>
+      <div class="content">
+        <div class="title-text">
+          <div class="title-action">
+            <div class="title">
+              <%=link_to post.title, post_path(post) %>
+            </div>
+            <% if user_signed_in? %>
+              <div class="action-menu">
+                <div class="view">
+                  <i class="far fa-eye"></i>
+                  <%= post.impressions_count %>
+                </div>
+                <div class="post_<%= post.id %>">
+                  <%= render 'ajax', post: post %>
+                </div>
+                <div class="comment">
+                  <%= link_to post_path(post) do %>
+                    <i class="far fa-comment"></i>
+                  <% end %>
+                  <%= post.comments.count %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="text">
+            <%= post.content.truncate(140) %>
+          </div>
+        </div>
+
+        <% if post.images.attached? %>
+          <div class="images">
+            <% post.images.each do |images| %>
+              <%= link_to images, :rel => "lightbox" do %>
+                <%= image_tag images %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="user-about">
+        　<div class="post-day">
+            投稿日:<%= post.created_at.strftime('%Y/%m/%d') %>
+          </div>
+          <div class="contributor">
+            投稿者:
+          </div>
+          <div class="image">
+            <%= link_to user_path(post.user.id) do %>
+              <% if post.user.image.attached? %>
+                <%= image_tag post.user.image %>
+              <% else %>
+                <%= image_tag "nouser.png" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="profile">
+            <div class="name-word">
+              <div class="name">
+                <%= link_to user_path(post.user.id) do %>
+                  <%= post.user.name %>
+                <% end %>
+              </div>
+              <div class="word">
+                <% if post.user.word.blank? %>
+                  <%= "つぶやき：まだ記述がありません" %>
+                <% else %>
+                  <%= "つぶやき：#{post.user.word}" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="pagination">
+      <%= paginate @posts %>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="main-title">
+      <div class="crown-image">
+        <%= image_tag "crown.png" %>
+      </div>
+      <%= "投稿ランキング" %>
+      <div class="crown-image">
+        <%= image_tag "crown.png" %>
+      </div>
+    </div>
+      <div class="favorite-ranking">
+        <div class="ranking-title">
+          <h4>評価の高い投稿</h4>
+        </div>
+        <% @favorite_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= link_to rank.title, post_path(rank) %>
+              <i class ="fas fa-heart"></i>
+              <%= rank.favorites.count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+          <hr>
+        <% end %>
+      </div>
+      <div class="comment-ranking">
+        <div class="ranking-title">
+          <h4>コメントの多い投稿</h4>
+        </div>
+        <% @comment_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= link_to rank.title, post_path(rank) %>
+              <i class="far fa-comment"></i></i>
+              <%= rank.comments.count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+          <hr>
+        <% end %>
+      </div>
+      <div class="view-ranking">
+        <div class="ranking-title">
+          <h4>閲覧数の多い投稿</h4>
+        </div>
+        <% @view_ranks.each.with_index(1) do |rank, i| %>
+          <ul class="ranking-content">
+	          <li>
+              <%= "第#{i}位  " %>
+              <%= link_to rank.title, post_path(rank) %>
+              <i class="far fa-eye"></i></i>
+              <%= rank.impressions_count %>
+            </li>
+            <span>投稿者 <%= rank.user.name %>さん</span>
+          </ul>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+

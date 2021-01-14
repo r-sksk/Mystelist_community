@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Mystelist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="description" content="本サイトは世の中に出回っている心霊・オカルト・ミステリー系の話やあなたが実際に体験した不思議な出来事を共有・投稿できるサービスとなっております。あなたの投稿をお待ちしております。">
+    <meta property="og:title" content="Mystelist_community" />
+    <meta property="og:type" content="オカルト" />
+    <meta property="og:url" content="http://www.mystery-community.site" />
+    <meta property="og:image" content="http://www.mystery-community.site/app/assets/images/horror.jpg" />
+    <meta property="og:site_name" content="Mystelist" />
+    <meta property="og:description" content="本サイトは世の中に出回っている心霊・オカルト・ミステリー系の話やあなたが実際に体験した不思議な出来事を共有・投稿できるサービスとなっております。あなたの投稿をお待ちしております。" />
 
+    <script src="https://kit.fontawesome.com/a2f2b054ac.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsframe.js/lib/jsframe.min.js"></script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+    <div id="wrapper">
+      <%= render 'shared/header' %>
+      <%= render 'shared/toast' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

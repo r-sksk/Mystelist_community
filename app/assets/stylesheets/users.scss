@@ -1,0 +1,191 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#users-new, #users-edit, #users-create, #users-update, #users-show {
+  .container {
+    h1 {
+      color: white;
+    }
+    .errors {
+      background-color: #333;
+      padding: 5px;
+    }
+  form {
+    .form-group {
+      margin: 10px 0;
+      color: white;
+      label {
+        display: block;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        appearance: none;
+        margin: 15px 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+      textarea {
+        margin-top: 10px;
+        width: 100%;
+        height: 100px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+    }
+    .image-preview {
+      max-width: 200px;
+      color: white;
+    }
+    .submit-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+      .button {
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 18pt;        /* 文字サイズ */
+        text-align    : center;      /* 文字位置   */
+        cursor        : pointer;     /* カーソル   */
+        padding       : 12px 12px;   /* 余白       */
+        background    : #333;     /* 背景色     */
+        color         : #ffffff;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s;         /* なめらか変化 */
+        box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+        border        : 2px solid #333;    /* 枠の指定 */
+      }
+      .button:hover {
+        box-shadow    : none;        /* カーソル時の影消去 */
+        color         : #333;     /* 背景色     */
+        background    : #ffffff;     /* 文字色     */
+      }
+    }
+  }
+}
+  h1 {
+    color: red;
+  }
+  .controll-section {
+    display: flex;
+    justify-content: space-between;
+
+    .user-section {
+      border: 2px solid #000;
+      width: 70%;
+      padding: 10px;
+      font-size: 20px;
+      .user-content {
+        display: flex;
+        padding: 15px;
+        border: 3px solid #000;
+        background-color: #99CCFF;
+        .user-image {
+          img {
+            border-radius: 50%;
+            background-position: center center;
+            width: 200px;
+            height: 200px;
+          }
+        }
+        .user-info {
+          margin-left: 10px;
+          padding-left: 30px;
+          p {
+            margin: 0;
+            text-align: center;
+            margin-bottom: 5px;
+            border-bottom: solid 2px #000;
+          }
+          .user-name {
+            padding-top: 10px;
+            padding-bottom: 5px;
+          }
+          .user-word {
+            padding-bottom: 5px;
+          }
+          .user-self {
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+    .user-sidebar {
+      border: 2px solid #000;
+      width: 20%;
+      padding: 20px;
+      font-size: 20px;
+      background-color:#FFFF77	;
+      p {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 5px;
+        border-bottom: solid 2px #000;
+      }
+    }
+  }
+  .post-info {
+    h2 {
+      color: red;
+    }
+  }
+  .post-section {
+    p {
+      font-size: 25px;
+      color: red;
+    }
+    .post-index {
+      background-color: #ffffff;
+      border: 2px solid #000;
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 71%;
+      .sub {
+        display: flex;
+        .post-title {
+          font-weight: bold;
+          padding : 5px;
+          padding-bottom: 0px;
+          border-bottom: 1px solid #000;
+          a {
+            color: red;
+          }
+        }
+        .time-action {
+          padding: 5px;
+        }
+        .action-menu {
+          display: flex;
+          justify-content: flex-end;
+          padding-top: 5px;
+          .view {
+            padding-right: 10px;
+          }
+          .like {
+            padding-right: 10px;
+            .fas.fa-heart {
+              color:pink
+            }
+          }
+          .comment {
+            padding-right: 10px;
+          }
+        }
+      }
+      .post-content {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        background-color: lavender
+      }
+    }
+  }
+}

@@ -1,24 +1,53 @@
-# README
+アプリケーションの概要
+- 前回Webサービスを開発した際の反省点を踏まえ、より実務を想定した技術やツールを使用することを心掛けました。近年では心霊やホラー等の納涼系の番組がテレビで放送されることが少なくなりましたが、動画投稿サイトではそういった動画の視聴数が高くなっていることを受け、需要に対応したサービスを作成しました。
+<br>本サービスは、世の中に出回っている心霊・オカルト・ミステリー系の話やユーザーが実際に体験した不思議な出来事を共有・投稿できるコミュニティサイトとなっています。
+- URL http://www.mystery-community.site  ミステリストコミュニティ
+![スクリーンショット (85)](https://user-images.githubusercontent.com/71174687/104278416-eb7fc880-54eb-11eb-8e5a-d22846412849.png)
+![スクリーンショット (83)](https://user-images.githubusercontent.com/71174687/104272867-67c0de80-54e1-11eb-9ae0-30ba5fb07e38.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+- ER図
+![Mystelist_community ER図 - DBMS ER 図 (UML 表記) のコピー](https://user-images.githubusercontent.com/71174687/104271080-4827b700-54dd-11eb-8bc2-8ef9289e2af2.png)
+図のようなモデルを作成し、関連付けを行いました。
+<br>
+<br>
 
-* Ruby version
+開発環境・本番環境
+- 開発環境　windouws OS  docker  &emsp;image管理（docker hub）
+- 使用言語  &nbsp;&nbsp;Ruby 2.6.2   フレームワーク Ruby on rails 5.2.4.4
+- 本番環境　AWS (EC2(Amazon Linux 2 AMI (HVM)) ＋　RDS(Postgres10.10))
+- サーバー構築　Nginx + Unicorn
+- ドメイン取得　レジストラ　ムームードメイン
+- その他ツール　git(Sourcetree)  &emsp;github  &emsp;Slack
+<br>
+<br>
 
-* System dependencies
+使用技術
+- ユーザーアカウントの作成・編集・削除機能、簡易ログイン機能（使用ライブラリ：devise)
+- ユーザー詳細ページの表示
+- ソーシャルログイン機能（Geogle API）
+- SNS共有機能
+- 投稿記事のCRUD機能
+- 投稿一覧、詳細ページの表示
+- 画像投稿機能（使用ライブラリ：active_storage）複数枚可、画像のポップアップ拡大表示機能（JSライブラリ：lightbox）
+- ページネーション機能（使用ライブラリ：kaminari）
+- 投稿閲覧履歴機能
+- 投稿記事に対するPV数カウント機能（使用ライブラリ：impressionist）
+- 投稿記事に対するいいね機能（非同期処理）
+- 投稿記事に対するコメント機能（非同期処理）
+- 投稿記事に対するランキング機能（いいね数、コメント数、PV数）
+- CSSレイアウトモジュールのFlexbox等の知識、サイドバーの実装
+- fontawesomeの導入（Stack iconの実装）
+- ユーザー通知機能（ユーザーが投稿した記事に対するいいね、コメントが発生した場合に表示する）
+- JSによる投稿記事の文字数のカウントやフラッシュメッセージのレイアウト
+- 投稿記事検索機能
+- railsの日本語化、バリデーションによるエラーの表示、日本語化
+<br>
+<br>
 
-* Configuration
+開発を通じて
+- 前回Webアプリケーションを開発した際の反省点を踏まえ、ローカル環境ではdockerによるコンテナ型の仮想環境を構築し、クラウドはリージョンが米国で処理に時間がかかるHerokuではなくAWSを採用しました。<br>Dockerはミドルウェアのインストールや各種環境設定をコード化して管理・共有することで、どこでも誰でも同じ環境が作れる利点があり、知人のエンジニアにサービスやコードを見てもらう際にdockerコマンド一つで開発環境の構築を行うことができました。
+<br>クラウドはAWSを使用し、Herokuへデプロイした際に学べなかったVPCやサブネット、IPアドレス、セキュリティの設定、SSH通信等の知識を身に付けました。実際に開発環境ではページの処理に少し時間がかかっていた部分がありましたが、EC2上ではストレスなくページ遷移や動的な処理が行えました。またアプリケーション内のデータベースでは保存したデータが消える可能性があったため、AWSのRDS(Postgresql)を使用しました。
+<br>サーバー構築はApache/Passengerも考えましたが、より高負荷に耐えられる点や情報の多いNginx/Unicornを使用しました。
+<br>課題点としてはもう少し動きをつけたUI/UXのデザインを実装できたらなと思いました。その点を踏まえ、JSのフレームワーク等を使用したサービスの開発を通じて知識を深めていきたいと思いました。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

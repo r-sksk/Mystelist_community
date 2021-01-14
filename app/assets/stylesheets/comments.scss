@@ -1,0 +1,32 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#users-comments {
+  .container {
+    background-color: #333;
+    margin-bottom: 25px;
+    h1 {
+      margin-top: 30px;
+      padding-top: 20px;
+      padding-left: 20px;
+      margin-bottom: 0;
+      color: red;
+    }
+    p {
+      font-size: 25px;
+      padding-left: 20px;
+    }
+    .comment-section {
+      width: 70%;
+      padding: 5px;
+      padding-left: 20px;
+      a {
+        color: red;
+      }
+      .far.fa-comment {
+        padding-left: 10px;
+      }
+    }
+  }
+}

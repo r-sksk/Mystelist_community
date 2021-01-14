@@ -1,0 +1,51 @@
+<div id="header">
+  <%= link_to root_path, class: "logo" do %>
+    <h1>
+      Mystelist-community
+    </h1>
+  <% end %>
+  <div class="link">
+    <ul id="nav">
+      <% if user_signed_in? %>
+        <%= form_tag(root_path, :method => "get") do %>
+          <div class="input-group">
+            <%= text_field_tag :search %>
+            <span class="input-group-btn">
+              <%= button_tag type: 'submit', :title => nil , class: "search-button" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            </span>
+          </div>
+        <% end %>
+        <li>
+          <%= link_to "投稿する", new_post_path, data: {"turbolinks" => false} %>
+        </li>
+        <li>
+          <%= link_to notifications_path(current_user), class: "navbar-item button is-dark" do %>
+            <% if unchecked_notifications.any? %>
+              <span class="fa-stack">
+                <i class="far fa-bell fa-lg fa-stack-2x" style="font-size: 1.5em;"></i>
+                <i class="fas fa-circle n-circle fa-stack-1x"></i>
+              </span>
+            <% else %>
+              <i class="far fa-bell fa-lg" style="font-size: 1.5em;"></i>
+            <% end %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "マイページ", user_path(current_user) %>
+        </li>
+        <li>
+          <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%=link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%=link_to "ログイン",  new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

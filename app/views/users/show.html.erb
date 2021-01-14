@@ -1,0 +1,143 @@
+<h1><%= "#{@user.name}さんのページ" %></h1>
+<div class="controll-section">
+  <div class="user-section">
+    <div class="user-content">
+      <div class="user-image">
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image %>
+        <% else %>
+          <%= image_tag "nouser.png" %>
+        <% end %>
+      </div>
+      <div class="user-info">
+        <p>ユーザー情報</p>
+        <div class="user-name">
+          <%= "ユーザー名： #{@user.name}" %>
+        </div>
+        <div class="user-word">
+          <% if @user.word.blank? %>
+            <%= "つぶやき：まだ記述がありません" %>
+          <% else %>
+            <%= "つぶやき: #{@user.word}" %>
+          <% end %>
+        </div>
+        <div class="user-self">
+          <% if @user.self_introduction.blank? %>
+            <%= "自己紹介：まだ記述がありません" %>
+          <% else %>
+            <%= "自己紹介: #{@user.self_introduction}" %>
+          <% end %>
+        </div>
+        <% if @user.id == current_user.id %>
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fas fa-user-edit"></i>
+              編集する
+          <% end %>
+          <br>
+          <%= link_to user_path(@user), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+            <i class="fas fa-user-alt-slash"></i>
+              アカウントを削除する
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if @user.id == current_user.id %>
+    <div class="user-sidebar">
+      <p>ユーザーメニュー</p>
+      <div class="post">
+        <%= link_to new_post_path do %>
+          <i class="far fa-plus-square"></i>
+            投稿する
+        <% end %>
+      </div>
+      <div class="favorites">
+        <%= link_to user_favorites_path(@user) do %>
+          <i class="fas fa-heart"></i>
+            評価した投稿
+        <% end %>
+      </div>
+      <div class="comments">
+        <%= link_to user_comments_path(@user) do %>
+          <i class="far fa-comment"></i>
+            コメントした投稿
+        <% end %>
+      </div>
+      <div class="histories">
+        <%= link_to user_histories_path(@user) do %>
+          <i class="fas fa-history"></i>
+            閲覧履歴
+        <% end %>
+      </div>
+      <div class="notifications">
+        <%= link_to notifications_path(current_user) do %>
+          <i class="far fa-bell fa-lg"></i>
+            通知一覧
+        <% end %>
+      </div>
+      <div class="logout">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>
+          ログアウトする
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="post-info">
+  <h2>
+    <%= "#{@user.name}さんの投稿" %>
+    <%= "#{@user.posts.count}件" %>
+  </h2>
+</div>
+<div class="post-section">
+  <% if @user.posts.empty? %>
+    <p>まだ投稿がありません<p>
+  <% else %>
+    <% @user_posts.each do |post| %>
+      <div class="post-index">
+        <div class="sub" >
+          <div class="post-title">
+            <%= link_to post_path(post) do %>
+              <%= post.title %>
+            <% end %>
+          </div>
+          <div class="time-action">
+            <time><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+            <% if @user.id == current_user.id %>
+              <%= link_to edit_post_path(post) do %>
+                <i class="far fa-edit"></i>
+                  編集する
+              <% end %>
+              <%= link_to post_path(post), method: :delete, data: {confirm: "本当に削除しますか？"} do %>
+                <i class="fas fa-trash"></i>
+                  削除する
+              <% end %>
+            <% end %>
+          </div>
+          <div class="action-menu">
+            <div class="view">
+              <i class="far fa-eye"></i>
+              <%= post.impressions_count %>
+            </div>
+            <div class="like">
+              <i class ="fas fa-heart"></i>
+              <%= post.favorites.count %>
+            </div>
+            <div class="comment">
+              <i class="far fa-comment"></i>
+              <%= post.comments.count %>
+            </div>
+          </div>
+        </div>
+        <div class="post-content">
+          <%= post.content.truncate(140) %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="user-pagination">
+    <%= paginate @user_posts %>
+  </div>
+</div>
